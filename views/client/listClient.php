@@ -1,40 +1,4 @@
-<?php
-// Configuration de la connexion
-$host = 'localhost';
-$db   = 'nom_de_votre_base';
-$user = 'root';
-$pass = ''; // Votre mot de passe MySQL
-$charset = 'utf8mb4';
-
-$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-];
-
-try {
-     $pdo = new PDO($dsn, $user, $pass, $options);
-} catch (\PDOException $e) {
-     die("Erreur de connexion : " . $e->getMessage());
-}
-
-// Récupération des clients
-$stmt = $pdo->query("SELECT id_client, nom, prénom, email, téléphone, adresse FROM client");
-$clients = $stmt->fetchAll();
-?>
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Commandes - Clients</title>
-    <!-- Intégration de Tailwind CSS -->
-     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 p-8">
-
-    <div class="max-w-6xl mx-auto">
+<div class="max-w-6xl mx-auto">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-gray-800">Liste des Clients</h1>
             <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
@@ -68,7 +32,7 @@ $clients = $stmt->fetchAll();
                             <?= htmlspecialchars($client['email']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-gray-600">
-                            <?= htmlspecialchars($client['téléphone']) ?>
+                            <?= htmlspecialchars($client['telephone']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-gray-600">
                             <?= htmlspecialchars($client['adresse']) ?>
@@ -83,6 +47,3 @@ $clients = $stmt->fetchAll();
             </table>
         </div>
     </div>
-
-</body>
-</html>
