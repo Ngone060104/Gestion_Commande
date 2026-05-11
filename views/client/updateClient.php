@@ -12,8 +12,8 @@
         <form action="<?= WEBROOT ?>" method="POST" class="p-8">
             
             <input type="hidden" name="controller" value="client">
-            <input type="hidden" name="action" value="update">
-            <input type="hidden" name="id_client" value="<?= $client['id_client'] ?>">
+            <input type="hidden" name="action" value="updateClient">
+            <input type="hidden" name="id" value="<?= $client['id_client'] ?>">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <!-- Nom -->

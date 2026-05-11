@@ -34,7 +34,7 @@ function updateClientAction(){
         }
     }
     $client = findClientById($id);
-    require_once (ROOT. "views/client/addClient.php");
+    require_once (ROOT. "views/client/updateClient.php");
 }
 function indexAction(){
     clientAction();
