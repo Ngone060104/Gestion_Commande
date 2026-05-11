@@ -38,7 +38,7 @@
                             <?= htmlspecialchars($client['adresse']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-center">
-                            <button class="text-blue-600 hover:text-blue-900 mr-3">Modifier</button>
+                            <a href ="<?= WEBROOT ?>?controller=client&action=updateClient&id=<?=$client["id_client"]?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
                             <button class="text-red-600 hover:text-red-900">Supprimer</button>
                         </td>
                     </tr>

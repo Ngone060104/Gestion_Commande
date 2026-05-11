@@ -25,3 +25,17 @@ function addClientAction(){
     }
     require_once(ROOT. "views/client/addClient.php");
 }
+function updateClientAction(){
+    $id = $_REQUEST["id"] ?? null;
+    if($_SERVER["REQUEST_METHOD"]=== "POST"){
+        if(updateClient($id, $_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['telephone'],$_POST['adresse'])){
+            header("Location:".WEBROOT."?controller=client");
+            exit();
+        }
+    }
+    $client = findClientById($id);
+    require_once (ROOT. "views/client/addClient.php");
+}
+function indexAction(){
+    clientAction();
+}
