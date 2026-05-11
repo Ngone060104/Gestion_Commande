@@ -5,9 +5,12 @@ function dispatch($controllerName) {
 
     if (file_exists($controllerFile)) {
         require_once($controllerFile);
-        $action = $controllerName . "Action"; 
-        if (function_exists($action)) {
-            $action();
+        $action = $_REQUEST['action'] ?? $controllerName;
+        $functionName = $action . "Action";  
+        if (function_exists($functionName)) {
+            $functionName();
+        } else {
+            die("Erreur : La fonction '{$functionName}' n'existe pas dans le contrôleur.");
         }
     } else {
         die("Erreur : Le contrôleur '{$controllerName}' n'existe pas.");

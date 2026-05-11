@@ -8,7 +8,7 @@ function getPDO(){
     if ($pdo === null) {
         try {
             $pdo = new PDO(
-                "mysql:host=127.0.0.1;dbname=estioncommande;charset=utf8;port=3306",
+                "mysql:host=localhost;dbname=estioncommande;charset=utf8;port=3307",
                 "root",
                 "",
                 [

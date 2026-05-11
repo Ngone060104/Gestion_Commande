@@ -1,9 +1,9 @@
 <div class="max-w-6xl mx-auto">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-gray-800">Liste des Clients</h1>
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
+            <a href="<?= WEBROOT ?>?controller=client&action=addClient" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
                 + Ajouter un client
-            </button>
+            </a>
         </div>
 
         <!-- Tableau Tailwind -->
@@ -38,7 +38,7 @@
                             <?= htmlspecialchars($client['adresse']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-center">
-                            <button class="text-blue-600 hover:text-blue-900 mr-3">Modifier</button>
+                            <a href ="<?= WEBROOT ?>?controller=client&action=updateClient&id=<?=$client["id_client"]?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
                             <button class="text-red-600 hover:text-red-900">Supprimer</button>
                         </td>
                     </tr>
