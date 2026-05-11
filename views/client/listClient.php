@@ -39,7 +39,7 @@
                         </td>
                         <td class="px-5 py-4 text-sm text-center">
                             <a href ="<?= WEBROOT ?>?controller=client&action=updateClient&id=<?=$client["id_client"]?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
-                            <button class="text-red-600 hover:text-red-900">Supprimer</button>
+                            <a href="<?= WEBROOT ?>?controller=client&action=deleteClient&id=<?=$client["id_client"]?>" class="text-red-600 hover:text-red-900" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce client ?');">Supprimer</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

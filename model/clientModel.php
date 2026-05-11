@@ -24,3 +24,8 @@ function updateClient($id, $nom, $prenom, $email, $telephone, $adresse){
     $stmt= $pdo -> prepare("UPDATE client SET nom = ?, prenom = ?, email = ?, telephone = ?, adresse = ? WHERE id_client = ?");
     return $stmt -> execute([$nom, $prenom, $email, $telephone, $adresse,$id,]);
 }
+function deleteClient($id){
+    $pdo = getPDO();
+    $stmt = $pdo->prepare("DELETE FROM client WHERE id_client = ?");
+    return $stmt->execute([$id]);
+}

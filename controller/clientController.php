@@ -36,6 +36,14 @@ function updateClientAction(){
     $client = findClientById($id);
     require_once (ROOT. "views/client/updateClient.php");
 }
+function deleteClientAction(){
+    $id = $_REQUEST["id"] ?? null;
+    if($id){
+        deleteClient($id);
+    }
+    header("Location:".WEBROOT."?controller=client");
+    exit();
+}
 function indexAction(){
     clientAction();
 }
