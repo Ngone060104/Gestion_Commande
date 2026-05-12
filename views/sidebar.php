@@ -16,7 +16,7 @@
             <span>Clients</span>
         </a>
 
-        <a href="<?= WEBROOT ?>?controller=produit" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
+        <a href="<?= WEBROOT ?>?controller=produit&action=index" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
             <i class="fas fa-tags w-8"></i>
             <span>Produits</span>
         </a>
