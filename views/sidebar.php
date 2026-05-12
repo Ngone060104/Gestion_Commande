@@ -21,7 +21,7 @@
             <span>Produits</span>
         </a>
 
-        <a href="<?= WEBROOT ?>?controller=commande" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
+        <a href="<?= WEBROOT ?>?controller=commande&action=index" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
             <i class="fas fa-shopping-cart w-8"></i>
             <span>Commandes</span>
         </a>
