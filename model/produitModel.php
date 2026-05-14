@@ -6,12 +6,11 @@ function findAllProduit(){
     $stmt = $pdo->query("SELECT * FROM produit");
     return $stmt->fetchAll();
 }
-function saveProduit($libelle, $prix, $stock){
+function saveProduit($ref,$libelle, $description ,$prix, $stock){
     $pdo = getPDO();
-    $stmt = $pdo->prepare("INSERT INTO produit(libelle,prix,stock)VALUES(?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO produit(ref,libelle,description,prix,stock)VALUES(?, ?, ?, ?, ?)");
     // Exécution avec les valeurs
-   return $stmt->execute([$libelle, $prix, $stock]);
-         // L'ID de la dernière ligne insérée     
+   return $stmt->execute([$ref,$libelle, $description ,$prix, $stock]);
 }
 function findProduitById($id){
     $pdo=getPDO();
@@ -19,10 +18,10 @@ function findProduitById($id){
     $stmt->execute([$id]);
     return $stmt -> fetch();
 }
-function updateProduit($id, $libelle, $prix, $stock){
+function updateProduit($id, $ref, $libelle, $description, $prix, $stock){
     $pdo = getPDO();
-    $stmt= $pdo -> prepare("UPDATE produit SET libelle = ?, prix = ?, stock = ? WHERE id_produit = ?");
-    return $stmt -> execute([$libelle, $prix, $stock,$id,]);
+    $stmt= $pdo -> prepare("UPDATE produit SET ref = ?, libelle = ?, description = ?, prix = ?, stock = ? WHERE id_produit = ?");
+    return $stmt -> execute([$ref, $libelle, $description, $prix, $stock, $id]);
 }
 function deleteProduit($id){
     $pdo = getPDO();

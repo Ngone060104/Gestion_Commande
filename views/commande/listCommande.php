@@ -13,7 +13,9 @@
                     <tr class="bg-gray-800 text-white text-left text-xs uppercase font-semibold">
                         <th class="px-5 py-3">ID</th>
                         <th class="px-5 py-3">Date de commande</th>
-                        <th class="px-5 py-3">Produit</th>
+                        <th class="px-5 py-3">Libelle</th>
+                        <th class="px-5 py-3">Montant total</th>
+                        <th class="px-5 py-3">Statut</th>
                         <th class="px-5 py-3">Client</th>
                         <th class="px-5 py-3 text-center">Actions</th>
                     </tr>
@@ -27,8 +29,14 @@
                         <td class="px-5 py-4 text-sm text-gray-700 font-bold">
                             <?= htmlspecialchars($cmd['date_commande']) ?>
                         </td>
-                        <td class="px-5 py-4 text-sm text-gray-600">
-                            <?= htmlspecialchars($cmd['id_produit']) ?>
+                        <td class="px-5 py-4 text-sm text-gray-700 font-bold">
+                            <?= htmlspecialchars($cmd['libelle']) ?>
+                        </td>
+                        <td class="px-5 py-4 text-sm text-gray-700 font-bold">
+                            <?= htmlspecialchars($cmd['montant_total']) ?>
+                        </td>
+                        <td class="px-5 py-4 text-sm text-gray-700 font-bold">
+                            <?= htmlspecialchars($cmd['statut']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-gray-600">
                             <?= htmlspecialchars($cmd['id_client']) ?>

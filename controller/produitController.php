@@ -11,11 +11,13 @@ function produitAction(){
 
 function addProduitAction(){
     if(isset($_POST['ajouter'])){
+        $ref = $_POST['ref'];
         $libelle = $_POST['libelle'];
+        $description = $_POST['description'];
         $prix = $_POST['prix'];
         $stock = $_POST['stock'];
 
-        if(saveProduit($libelle, $prix, $stock)){
+        if(saveProduit($ref, $libelle, $description, $prix, $stock)){
             header("Location:".WEBROOT."?controller=produit");
             exit();
         }else{
@@ -27,7 +29,13 @@ function addProduitAction(){
 function updateProduitAction(){
     $id = $_REQUEST["id"] ?? null;
     if($_SERVER["REQUEST_METHOD"]=== "POST"){
-        if(updateProduit($id, $_POST['libelle'],$_POST['prix'],$_POST['stock'])){
+        $ref = $_POST['ref'];
+        $libelle = $_POST['libelle'];
+        $description = $_POST['description'];
+        $prix = $_POST['prix'];
+        $stock = $_POST['stock'];
+
+        if(updateProduit($id, $ref, $libelle, $description, $prix, $stock)){
             header("Location:".WEBROOT."?controller=produit");
             exit();
         }

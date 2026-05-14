@@ -17,10 +17,24 @@
 
                 <!-- libelle -->
                 <div>
+                    <label for="ref" class="block text-sm font-semibold text-gray-700 mb-2">Référence</label>
+                    <input type="text" name="ref" id="ref"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
+                        placeholder="Ex: REF-001">
+                </div>
+
+                <div>
                     <label for="libelle" class="block text-sm font-semibold text-gray-700 mb-2">Libellé</label>
                     <input type="text" name="libelle" id="libelle"
                         class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
                         placeholder="Ex: Ordinateur portable">
+                </div>
+
+                <div>
+                    <label for="description" class="block text-sm font-semibold text-gray-700 mb-2">Description</label>
+                    <input type="text" name="description" id="description"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
+                        placeholder="Ex: Sac à dos ergonomique">
                 </div>
 
                 <!-- prix -->
