@@ -6,11 +6,11 @@ function findAllCommandes(){
     $stmt = $pdo->query("SELECT * FROM commande");
     return $stmt->fetchAll();
 }
-function saveCommande($date_commande, $id_produit,$id_client){
+function saveCommande($date_commande,$libelle,$montant_total,$statut,$id_client){
     $pdo = getPDO();
-    $stmt = $pdo->prepare("INSERT INTO commande(date_commande, id_produit, id_client) VALUES(?, ?, ?, ?)");
+    $stmt = $pdo->prepare("INSERT INTO commande(date_commande, libelle, montant_total, statut, id_client) VALUES(?, ?, ?, ?, ?)");
     // Exécution avec les valeurs
-    return $stmt->execute([$date_commande, $id_produit, $id_client]);
+    return $stmt->execute([$date_commande, $libelle, $montant_total, $statut, $id_client]);
          // L'ID de la dernière ligne insérée     
 }
 function findCommandeById($id){

@@ -12,7 +12,9 @@
                 <thead>
                     <tr class="bg-gray-800 text-white text-left text-xs uppercase font-semibold">
                         <th class="px-5 py-3">ID</th>
+                        <th class="px-5 py-3">REF</th>
                         <th class="px-5 py-3">libelle</th>
+                        <th class="px-5 py-3">description</th>
                         <th class="px-5 py-3">prix</th>
                         <th class="px-5 py-3">stock</th>
                         <th class="px-5 py-3 text-center">Actions</th>
@@ -24,8 +26,14 @@
                         <td class="px-5 py-4 text-sm font-medium text-gray-900">
                             #<?= $pr['id_produit'] ?>
                         </td>
+                        <td class="px-5 py-4 text-sm font-medium text-gray-900">
+                            #<?= $pr['ref'] ?>
+                        </td>
                         <td class="px-5 py-4 text-sm text-gray-700 font-bold">
                             <?= htmlspecialchars($pr['libelle']) ?>
+                        </td>
+                        <td class="px-5 py-4 text-sm text-gray-700 font-bold">
+                            <?= htmlspecialchars($pr['description']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-gray-600">
                             <?= htmlspecialchars($pr['prix']) ?>

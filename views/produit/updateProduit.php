@@ -15,12 +15,27 @@
             <input type="hidden" name="action" value="updateProduit">
              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
+                <!-- ref -->
+                <div>
+                    <label for="ref" class="block text-sm font-semibold text-gray-700 mb-2">Référence</label>
+                    <input type="text" name="ref" id="ref" value="<?= ($produit["ref"])?>"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
+                        placeholder="Ex: ABC123">
+                </div>
+
                 <!-- libelle -->
                 <div>
                     <label for="libelle" class="block text-sm font-semibold text-gray-700 mb-2">Libellé</label>
                     <input type="text" name="libelle" id="libelle" value="<?= ($produit["libelle"])?>"
                         class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
                         placeholder="Ex: Ordinateur portable">
+                </div>
+                <!-- description -->
+                <div>
+                    <label for="description" class="block text-sm font-semibold text-gray-700 mb-2">Description</label>
+                    <input type="text" name="description" id="description" value="<?= ($produit["description"])?>"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
+                        placeholder="Ex: Sac à dos ergonomique">
                 </div>
 
                 <!-- prix -->
