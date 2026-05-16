@@ -2,30 +2,25 @@
 require_once(ROOT."db/db.php");
 
 function findAllClients(){
-    $pdo = getPDO();
-    $stmt = $pdo->query("SELECT * FROM client");
-    return $stmt->fetchAll();
+    $sql = "SELECT * FROM client";
+    return executeSelect($sql);
 }
 function saveClient($nom, $prenom, $email, $telephone, $adresse){
-    $pdo = getPDO();
-    $stmt = $pdo->prepare("INSERT INTO client(nom,prenom,email,telephone,adresse)VALUES(?, ?, ?, ?, ?)");
-    // Exécution avec les valeurs
-   return $stmt->execute([$nom, $prenom, $email, $telephone, $adresse]);
-         // L'ID de la dernière ligne insérée     
+    $sql = "INSERT INTO client(nom,prenom,email,telephone,adresse)VALUES(?, ?, ?, ?, ?)";
+    return executeUpdate($sql,[$nom, $prenom, $email, $telephone, $adresse]);
 }
 function findClientById($id){
     $pdo=getPDO();
     $stmt=$pdo -> prepare("SELECT* FROM client WHERE id_client = ?");
     $stmt->execute([$id]);
-    return $stmt -> fetch();
+    return $stmt -> fetch(); 
 }
 function updateClient($id, $nom, $prenom, $email, $telephone, $adresse){
-    $pdo = getPDO();
-    $stmt= $pdo -> prepare("UPDATE client SET nom = ?, prenom = ?, email = ?, telephone = ?, adresse = ? WHERE id_client = ?");
-    return $stmt -> execute([$nom, $prenom, $email, $telephone, $adresse,$id,]);
+    $sql = "UPDATE client SET nom = ?, prenom = ?, email = ?, telephone = ?, adresse = ? WHERE id_client = ?";
+    return executeUpdate($sql, [$nom, $prenom, $email, $telephone, $adresse, $id]);
 }
 function deleteClient($id){
-    $pdo = getPDO();
-    $stmt = $pdo->prepare("DELETE FROM client WHERE id_client = ?");
-    return $stmt->execute([$id]);
+    $sql = "DELETE FROM client WHERE id_client = ?";
+    return executeDelete($sql, [$id]);
+
 }
