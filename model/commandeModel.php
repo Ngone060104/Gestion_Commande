@@ -2,16 +2,12 @@
 require_once(ROOT."db/db.php");
 
 function findAllCommandes(){
-    $pdo = getPDO();
-    $stmt = $pdo->query("SELECT * FROM commande");
-    return $stmt->fetchAll();
+    $sql = "SELECT * FROM commande";
+    return executeSelect($sql);
 }
 function saveCommande($date_commande,$libelle,$montant_total,$statut,$id_client){
-    $pdo = getPDO();
-    $stmt = $pdo->prepare("INSERT INTO commande(date_commande, libelle, montant_total, statut, id_client) VALUES(?, ?, ?, ?, ?)");
-    // Exécution avec les valeurs
-    return $stmt->execute([$date_commande, $libelle, $montant_total, $statut, $id_client]);
-         // L'ID de la dernière ligne insérée     
+    $sql = "INSERT INTO commande(date_commande, libelle, montant_total, statut, id_client) VALUES(?, ?, ?, ?, ?)";
+    return executeUpdate($sql, [$date_commande, $libelle, $montant_total, $statut, $id_client]); 
 }
 function findCommandeById($id){
     $pdo=getPDO();
@@ -20,14 +16,12 @@ function findCommandeById($id){
     return $stmt -> fetch();
 }
 function updateCommande($id, $date_commande, $id_produit, $id_client){
-    $pdo = getPDO();
-    $stmt= $pdo -> prepare("UPDATE commande SET date_commande = ?, id_produit = ?, id_client = ? WHERE id_commande = ?");
-    return $stmt -> execute([$date_commande, $id_produit, $id_client, $id]);
+    $sql = "UPDATE commande SET date_commande = ?, id_produit = ?, id_client = ? WHERE id_commande = ?";
+    return executeUpdate($sql, [$date_commande, $id_produit, $id_client, $id]);
 }
 function deleteCommande($id){
-    $pdo = getPDO();
-    $stmt = $pdo->prepare("DELETE FROM commande WHERE id_commande = ?");
-    return $stmt->execute([$id]);
+    $sql = "DELETE FROM commande WHERE id_commande = ?";
+    return executeDelete($sql, [$id]);
 }
 
 function findCommandeDetailsById($id){

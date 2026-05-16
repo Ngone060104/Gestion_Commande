@@ -22,5 +22,31 @@ function getPDO(){
     }
     return $pdo;
 }
+function closePDO($pdo) {
+    // En assignant null à la variable statique, on ferme la connexion
+   $pdo = null;
+}
+
+function executeSelect($sql,$one=false){
+     $pdo = getPDO();
+    $stmt = $pdo->query($sql);
+    if($one){
+        return $stmt->fetch();
+    }else{
+    return $stmt->fetchAll();
+}
+}
+
+function executeUpdate($sql, $params = []){
+    $pdo = getPDO();
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute($params);
+}
+
+function executeDelete($sql, $params = []){
+    $pdo = getPDO();
+    $stmt = $pdo->prepare($sql);
+    return $stmt->execute($params);
+}
 
 ?>
