@@ -9,8 +9,8 @@ function getPDO(){
         try {
             $pdo = new PDO(
                 "mysql:host=127.0.0.1;dbname=estioncommande;charset=utf8;port=3306",
-                "root",
-                "",
+                "gestionnaire",
+                "gestionE221",
                 [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
