@@ -10,10 +10,8 @@ function saveClient($nom, $prenom, $email, $telephone, $adresse){
     return executeUpdate($sql,[$nom, $prenom, $email, $telephone, $adresse]);
 }
 function findClientById($id){
-    $pdo=getPDO();
-    $stmt=$pdo -> prepare("SELECT* FROM client WHERE id_client = ?");
-    $stmt->execute([$id]);
-    return $stmt -> fetch(); 
+    $sql = "SELECT* FROM client WHERE id_client = ?";
+    return executeSelect($sql, [$id], true);
 }
 function updateClient($id, $nom, $prenom, $email, $telephone, $adresse){
     $sql = "UPDATE client SET nom = ?, prenom = ?, email = ?, telephone = ?, adresse = ? WHERE id_client = ?";

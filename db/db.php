@@ -1,6 +1,5 @@
 <?php
 // Configuration de la connexion
-
 function getPDO(){
     // static permet de garder la variable en mémoire entre plusieurs appels
     static $pdo = null; 
@@ -27,9 +26,10 @@ function closePDO($pdo) {
    $pdo = null;
 }
 
-function executeSelect($sql,$one=false){
+function executeSelect($sql,$params=[],$one=false){
      $pdo = getPDO();
-    $stmt = $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute($params);
     if($one){
         return $stmt->fetch();
     }else{
