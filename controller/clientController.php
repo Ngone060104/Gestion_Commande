@@ -3,11 +3,14 @@ require_once(ROOT."model/clientModel.php");
 // echo "test controller";
 function clientAction(){
     $clients = findAllClients();
+    // $total_client = countTable("client");
     // echo "<pre>";
     // var_dump($clients);
     // echo "</pre>";
     require_once(ROOT. "views/client/listClient.php");
+    // loadView("client/listClient",["client"=>$clients,"total_client"=>$total_client]);
 }
+// gerer validation champs
 function addClientAction(){
     if(isset($_POST['ajouter'])){
         $nom = $_POST['nom'];

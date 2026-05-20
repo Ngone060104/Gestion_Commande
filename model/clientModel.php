@@ -5,6 +5,7 @@ function findAllClients(){
     $sql = "SELECT * FROM client";
     return executeSelect($sql);
 }
+
 function saveClient($nom, $prenom, $email, $telephone, $adresse){
     $sql = "INSERT INTO client(nom,prenom,email,telephone,adresse)VALUES(?, ?, ?, ?, ?)";
     return executeUpdate($sql,[$nom, $prenom, $email, $telephone, $adresse]);
