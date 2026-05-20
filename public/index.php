@@ -5,6 +5,7 @@ define("ROOT", (substr($_SERVER['DOCUMENT_ROOT'] ,0, -6)));
 require_once(ROOT."db/db.php");
 require_once(ROOT."core/route.php");
 require_once(ROOT."views/header.php");
+// require_once(ROOT."db/helpers.php");
 
 
 // On récupère le nom du contrôleur (par défaut 'client')
