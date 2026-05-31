@@ -1,9 +1,12 @@
 <div class="max-w-6xl mx-auto">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-gray-800">Liste des Commandes</h1>
-            <a href="<?= WEBROOT ?>?controller=commande&action=addCommande" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
-                + Ajouter une commande
-            </a>
+           <?php if (isAdmin()): ?>
+        <!-- Votre bouton avec votre méthode d'input hidden préférée s'il y a lieu -->
+        <a href="<?= path('commande', 'addCommande') ?>" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
+            + Ajouter une commande
+        </a>
+    <?php endif; ?>
         </div>
 
         <!-- Tableau Tailwind -->
@@ -42,10 +45,7 @@
                             <?= htmlspecialchars($cmd['id_client']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-center">
-                            <a href ="<?= WEBROOT ?>?controller=commande&action=updateCommande&id=<?=$cmd["id_commande"]?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
-                            <a href="<?= WEBROOT ?>?controller=commande&action=deleteCommande&id=<?=$cmd["id_commande"]?>" class="text-red-600 hover:text-red-900" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette commande ?');">Supprimer</a>
-                            <a href="<?= WEBROOT ?>?controller=commande&action=voireCommande&id=<?=$cmd["id_commande"]?>" class="text-red-600 hover:text-red-900">details</a>
-                        </td>
+                            <a href="<?= path('commande', 'voireCommande') ?>&id=<?=$cmd["id_commande"]?>" class="text-red-600 hover:text-red-900">details</a>
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

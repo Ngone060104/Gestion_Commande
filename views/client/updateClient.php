@@ -2,7 +2,7 @@
     <!-- Entête avec bouton retour -->
     <div class="flex items-center justify-between mb-8">
         <h1 class="text-3xl font-bold text-gray-800">Modifier client</h1>
-        <a href="<?= WEBROOT ?>?controller=client" class="text-gray-600 hover:text-gray-900 flex items-center transition">
+        <a href="<?= path('client', 'index') ?>" class="text-gray-600 hover:text-gray-900 flex items-center transition">
             <i class="fas fa-arrow-left mr-2"></i> Retour à la liste
         </a>
     </div>
@@ -59,9 +59,9 @@
 
             <!-- Boutons d'action -->
             <div class="mt-10 flex items-center justify-end space-x-4">
-                <button type="reset" class="px-6 py-3 text-gray-600 font-medium hover:bg-gray-50 rounded-xl transition">
+               <a href="<?= path('client', 'index') ?>" class="px-6 py-3 text-gray-600 font-medium hover:bg-gray-50 rounded-xl transition">
                     Annuler
-                </button>
+                </a>
                 <button type="submit" name="ajouter" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-200 transition transform hover:-translate-y-1">
                     Modifier le client
                 </button>

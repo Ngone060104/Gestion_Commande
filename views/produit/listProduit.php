@@ -1,7 +1,7 @@
 <div class="max-w-6xl mx-auto">
         <div class="flex justify-between items-center mb-6">
             <h1 class="text-3xl font-bold text-gray-800">Liste des Produits</h1>
-            <a href="<?= WEBROOT ?>?controller=produit&action=addProduit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
+            <a href="<?= path('produit', 'addProduit') ?>" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
                 + Ajouter un produit
             </a>
         </div>
@@ -42,8 +42,8 @@
                             <?= htmlspecialchars($pr['stock']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-center">
-                            <a href ="<?= WEBROOT ?>?controller=produit&action=updateProduit&id=<?=$pr["id_produit"]?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
-                            <a href="<?= WEBROOT ?>?controller=produit&action=deleteProduit&id=<?=$pr["id_produit"]?>" class="text-red-600 hover:text-red-900" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?');">Supprimer</a>
+                            <a href ="<?= path('produit', 'updateProduit')?>&id=<?=$pr["id_produit"]?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
+                            <a href="<?= path('produit', 'deleteProduit')?>&id=<?=$pr["id_produit"]?>" class="text-red-600 hover:text-red-900" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?');">Supprimer</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

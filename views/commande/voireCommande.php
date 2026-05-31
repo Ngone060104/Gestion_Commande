@@ -22,10 +22,15 @@
         <tbody class="divide-y">
             <?php $totalGeneral = 0; ?>
             <?php foreach ($commandeDetails as $cmd): ?>
-                <?php $totalLigne = $cmd['stock'] * $cmd['prix']; $totalGeneral += $totalLigne; ?>
+                <?php
+                // Remplacer 'stock' par le vrai nom du champ quantité dans votre BDD (ex: 'quantite')
+                $quantiteCommandee = $cmd['quantite_achetee'];
+                $totalLigne = $quantiteCommandee * $cmd['prix'];
+                $totalGeneral += $totalLigne;
+                ?>
                 <tr>
                     <td class="py-4 px-4 font-medium"><?= $cmd['libelle'] ?></td>
-                    <td class="py-4 px-4 text-center"><?= $cmd['stock'] ?></td>
+                    <td class="py-4 px-4 text-center"><?= $quantiteCommandee ?></td>
                     <td class="py-4 px-4 text-right"><?= number_format($cmd['prix'], 0, ',', ' ') ?> FCFA</td>
                     <td class="py-4 px-4 text-right font-bold"><?= number_format($totalLigne, 0, ',', ' ') ?> FCFA</td>
                 </tr>
@@ -39,4 +44,11 @@
             <p class="text-2xl font-bold"><?= number_format($totalGeneral, 0, ',', ' ') ?> FCFA</p>
         </div>
     </div>
+    <div class="flex justify-between items-center mt-6">
+    <!-- Bouton Retour à la liste -->
+    <a href="<?= path('commande', 'index') ?>" 
+       class="text-gray-600 hover:text-gray-900 flex items-center gap-2 font-medium transition">
+        ← Retour aux commandes
+    </a>
+</div>
 </div>

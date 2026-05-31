@@ -10,11 +10,15 @@ function saveCommande($date_commande,$libelle,$montant_total,$statut,$id_client)
     return executeUpdate($sql, [$date_commande, $libelle, $montant_total, $statut, $id_client]); 
 }
 function findCommandeById($id){
-    $pdo=getPDO();
-    $stmt=$pdo -> prepare("SELECT c.* , cl.nom AS nom_client , cl.prenom AS prenom_client FROM commande c LEFT JOIN client cl ON c.id_client = cl.id_client WHERE c.id_commande = ?");
-    $stmt->execute([$id]);
-    return $stmt -> fetch();
+    $sql = "SELECT c.*, cl.nom AS nom_client, cl.prenom AS prenom_client FROM commande c LEFT JOIN client cl ON c.id_client = cl.id_client WHERE c.id_commande = ?";    
+    return executeSelect($sql, [$id], true);
 }
+
+function getCommandeById($id){
+    $sql = "SELECT * FROM commande WHERE id_commande = ?";
+    return executeSelect($sql, [$id], true);
+}
+
 function updateCommande($id, $date_commande, $id_produit, $id_client){
     $sql = "UPDATE commande SET date_commande = ?, id_produit = ?, id_client = ? WHERE id_commande = ?";
     return executeUpdate($sql, [$date_commande, $id_produit, $id_client, $id]);
@@ -25,10 +29,13 @@ function deleteCommande($id){
 }
 
 function findCommandeDetailsById($id){
-    $pdo = getPDO();
-    $stmt = $pdo->prepare("SELECT c.*, p.libelle AS nom_produit, p.stock AS stock_produit, p.prix AS prix_produit, cl.nom AS nom_client, cl.prenom AS prenom_client FROM commande c JOIN produit p ON c.id_produit = p.id_produit JOIN client cl ON c.id_client = cl.id_client WHERE c.id_commande = ?");
-    $stmt->execute([$id]);
-    return $stmt->fetch();
+    $sql  = "SELECT c.*,  pc.quantite AS quantite_achetee, p.libelle, p.stock, p.prix, cl.nom AS nom_client, cl.prenom AS prenom_client 
+            FROM commande c 
+            JOIN produit_commande pc ON c.id_commande = pc.id_commande 
+            JOIN produit p ON pc.id_produit = p.id_produit 
+            JOIN client cl ON c.id_client = cl.id_client 
+            WHERE c.id_commande = ?";
+    return executeSelect($sql, [$id]);
 }
 
 // Recherche un client par son téléphone
@@ -90,4 +97,9 @@ function validerCommandeDefinitif($id_commande, $total, $libelleCommande) {
 function supprimerProduitDuPanier($idCommande, $idProduit) {
     $sql = "DELETE FROM produit_commande WHERE id_commande = ? AND id_produit = ?";
     return executeUpdate($sql, [$idCommande, $idProduit]);
+}
+
+function findCommandesByClientId($idClient) {
+    $sql = "SELECT * FROM commande WHERE id_client = ?";
+    return executeSelect($sql, [$idClient]);
 }
