@@ -9,7 +9,7 @@
 
     <!-- Carte du formulaire -->
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        <form action="<?= WEBROOT ?>" method="POST" class="p-8">
+        <form action="<?= WEBROOT ?>" method="POST" class="p-8" enctype="multipart/form-data">
             
             <input type="hidden" name="controller" value="client">
             <input type="hidden" name="action" value="updateClient">
@@ -55,6 +55,13 @@
                         class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition"
                         placeholder="Ex: Plateau, Dakar">
                 </div>
+
+                <!-- Photo de profil -->
+                <div class="md:col-span-2">
+                    <label for="photo" class="block text-sm font-semibold text-gray-700 mb-2">Photo de Profil</label>
+                    <input type="file" name="photo" id="photo"
+                        class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition">
+            </div>
             </div>
 
             <!-- Boutons d'action -->

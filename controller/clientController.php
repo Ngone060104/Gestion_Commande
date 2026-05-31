@@ -99,7 +99,13 @@ function addClientAction(){
 function updateClientAction(){
     $id = $_REQUEST["id"] ?? null;
     if($_SERVER["REQUEST_METHOD"]=== "POST"){
-        if(updateClient($id, $_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['telephone'],$_POST['adresse'])){
+         // 1. Récupérer le nom du fichier uploadé (ou gérer un nom par défaut si vide)
+        $photo = $_FILES['photo']['name'] ?? ''; 
+         // 2. Déplacer le fichier téléchargé vers votre dossier de destination (ex: "uploads/")
+        if (!empty($_FILES['photo']['tmp_name'])) {
+            move_uploaded_file($_FILES['photo']['tmp_name'], "uploads/" . $photo);
+        }
+        if(updateClient($id, $_POST['nom'],$_POST['prenom'],$_POST['email'],$_POST['telephone'],$_POST['adresse'],$photo)){
             header("Location:".path("client", "index"));
             exit();
         }
@@ -144,7 +150,13 @@ function updateProfileAction() {
         isEmpty('telephone', $_POST['telephone'], $errors);
         
         if (validate($errors)) {
-            $success = updateClient($idClient, $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['telephone'], $_POST['adresse']);
+            // 1. Récupérer le nom du fichier uploadé (ou gérer un nom par défaut si vide)
+            $photo = $_FILES['photo']['name'] ?? ''; 
+            // 2. Déplacer le fichier téléchargé vers votre dossier de destination (ex: "uploads/")
+            if (!empty($_FILES['photo']['tmp_name'])) {
+                move_uploaded_file($_FILES['photo']['tmp_name'], "uploads/" . $photo);
+            }
+            $success = updateClient($idClient, $_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['telephone'], $_POST['adresse'], $photo);
             if ($success) {
                 // Si c'est le client lui-même, on met à jour ses données en session pour l'affichage du Header
                 if (isClient()) {
