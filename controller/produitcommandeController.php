@@ -6,7 +6,8 @@ function produitcommandeAction(){
     // echo "<pre>";
     // var_dump($produitcommandes);
     // echo "</pre>";
-    require_once(ROOT. "views/produit_commande/listProduitcommande.php");
+    // require_once(ROOT. "views/produit_commande/listProduitcommande.php");
+    loadView("produit_commande/listProduitcommande",["produitcommandes"=>$produitcommandes]);
 }
 
 function indexAction(){

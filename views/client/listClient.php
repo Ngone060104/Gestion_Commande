@@ -1,27 +1,35 @@
 <div class="max-w-6xl mx-auto">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-3xl font-bold text-gray-800">Liste des Clients</h1>
-            <a href="<?= WEBROOT ?>?controller=client&action=addClient" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
-                + Ajouter un client
-            </a>
-        </div>
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold text-gray-800">Liste des Clients</h1>
+        <a href="<?= path('client', 'addClient') ?>" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow">
+            + Ajouter un client
+        </a>
+    </div>
 
-        <!-- Tableau Tailwind -->
-        <div class="bg-white shadow-md rounded-xl overflow-hidden">
-            <table class="min-w-full leading-normal">
-                <thead>
-                    <tr class="bg-gray-800 text-white text-left text-xs uppercase font-semibold">
-                        <th class="px-5 py-3">ID</th>
-                        <th class="px-5 py-3">Client</th>
-                        <th class="px-5 py-3">Email</th>
-                        <th class="px-5 py-3">Téléphone</th>
-                        <th class="px-5 py-3">Adresse</th>
-                        <th class="px-5 py-3 text-center">Actions</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-200">
-                    <?php foreach ($clients as $client): ?>
+    <!-- Tableau Tailwind -->
+    <div class="bg-white shadow-md rounded-xl overflow-hidden">
+        <table class="min-w-full leading-normal">
+            <thead>
+                <tr class="bg-gray-800 text-white text-left text-xs uppercase font-semibold">
+                    <th class="px-5 py-3">Profil</th>
+                    <th class="px-5 py-3">ID</th>
+                    <th class="px-5 py-3">Client</th>
+                    <th class="px-5 py-3">Email</th>
+                    <th class="px-5 py-3">Téléphone</th>
+                    <th class="px-5 py-3">Adresse</th>
+                    <th class="px-5 py-3 text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+                <?php foreach ($clients as $client): ?>
                     <tr class="hover:bg-gray-50 transition-colors">
+                         <td class="px-5 py-4 text-sm text-gray-700 font-bold flex items-center gap-3">
+                            <!-- Affichage dynamique de l'image de profil du client -->
+                            <img class="h-10 w-10 rounded-full object-cover border-2 border-gray-200"
+                                src="<?= WEBROOT ?>uploads/<?= !empty($client['photo']) ? $client['photo'] : 'default.png' ?>"
+                                alt="Avatar">
+                        </td>
+                        
                         <td class="px-5 py-4 text-sm font-medium text-gray-900">
                             #<?= $client['id_client'] ?>
                         </td>
@@ -38,12 +46,12 @@
                             <?= htmlspecialchars($client['adresse']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-center">
-                            <a href ="<?= WEBROOT ?>?controller=client&action=updateClient&id=<?=$client["id_client"]?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
-                            <a href="<?= WEBROOT ?>?controller=client&action=deleteClient&id=<?=$client["id_client"]?>" class="text-red-600 hover:text-red-900" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce client ?');">Supprimer</a>
+                            <a href="<?= path('client', 'updateClient') ?>&id=<?= $client["id_client"] ?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
+                            <a href="<?= path('client', 'deleteClient') ?>&id=<?= $client["id_client"] ?>" class="text-red-600 hover:text-red-900" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce client ?');">Supprimer</a>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
+</div>

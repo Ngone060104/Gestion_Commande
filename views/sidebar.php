@@ -11,22 +11,22 @@
             <span>Accueil</span>
         </a>
 
-        <a href="<?= WEBROOT ?>?controller=client&action=index" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
+        <a href="<?= path('client', 'index') ?>" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
             <i class="fas fa-users w-8"></i>
             <span>Clients</span>
         </a>
 
-        <a href="<?= WEBROOT ?>?controller=produit&action=index" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
+        <a href="<?= path('produit', 'index') ?>" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
             <i class="fas fa-tags w-8"></i>
             <span>Produits</span>
         </a>
 
-        <a href="<?= WEBROOT ?>?controller=commande&action=index" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
+        <a href="<?= path('commande', 'index') ?>" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
             <i class="fas fa-shopping-cart w-8"></i>
             <span>Commandes</span>
         </a>
 
-        <a href="<?= WEBROOT ?>?controller=produitcommande&action=index" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
+        <a href="<?= path('produitcommande', 'index') ?>" class="flex items-center px-4 py-3 text-gray-300 hover:bg-blue-600 hover:text-white rounded-lg transition-all">
             <i class="fas fa-shopping-cart w-8"></i>
             <span>ProduitCommandes</span>
         </a>
