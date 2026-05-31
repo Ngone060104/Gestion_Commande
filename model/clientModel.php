@@ -2,7 +2,7 @@
 require_once(ROOT."db/db.php");
 
 function findAllClients(){
-    $sql = "SELECT * FROM client";
+    $sql = "SELECT * FROM client WHERE role = 'client'";
     return executeSelect($sql);
 }
 
@@ -15,8 +15,8 @@ function findClientById($id){
     return executeSelect($sql, [$id], true);
 }
 function updateClient($id, $nom, $prenom, $email, $telephone, $adresse,$photo){
-    $sql = "UPDATE client SET nom = ?, prenom = ?, email = ?, telephone = ?, adresse = ? WHERE id_client = ?";
-    return executeUpdate($sql, [$nom, $prenom, $email, $telephone, $adresse,$photo, $id]);
+    $sql = "UPDATE client SET nom = ?, prenom = ?, email = ?, telephone = ?, adresse = ?, photo = ? WHERE id_client = ?";
+    return executeUpdate($sql, [$nom, $prenom, $email, $telephone, $adresse, $photo, $id]);
 }
 function deleteClient($id){
     $sql = "DELETE FROM client WHERE id_client = ?";
