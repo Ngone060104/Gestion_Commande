@@ -7,9 +7,14 @@ function getPDO(){
     if ($pdo === null) {
         try {
             $pdo = new PDO(
-                "mysql:host=127.0.0.1;dbname=estioncommande;charset=utf8;port=3306",
-                "gestionnaire",
-                "gestionE221",
+                // "mysql:host=127.0.0.1;dbname=estioncommande;charset=utf8;port=3306",
+                // "gestionnaire",
+                // "gestionE221",
+                  // "mysql:host=127.0.0.1;dbname=estioncommande;charset=utf8;port=3306",
+                "mysql:host=mysql-gestioncommande.alwaysdata.net;dbname=gestioncommande_db;charset=utf8;port=3306",
+                // // "gestionnaire",
+                "gestioncommande",
+                "gestioncommandeE221@",
                 [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC

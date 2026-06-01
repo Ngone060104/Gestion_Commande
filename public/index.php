@@ -1,7 +1,8 @@
 <?php
-define("WEBROOT","http://localhost:8005/");
-define("ROOT", (substr($_SERVER['DOCUMENT_ROOT'] ,0, -6)));
-
+// define("WEBROOT","http://localhost:8005/");
+// define("ROOT", (substr($_SERVER['DOCUMENT_ROOT'] ,0, -6)));
+define("WEBROOT","https://gestioncommande.alwaysdata.net/");
+define("ROOT", dirname(__DIR__) . "/");
 require_once(ROOT."db/db.php");
 require_once(ROOT."core/route.php");
 require_once(ROOT."db/helpers.php");
