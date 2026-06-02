@@ -45,7 +45,9 @@
                             <?= htmlspecialchars($cmd['id_client']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-center">
-                            <a href="<?= path('commande', 'voireCommande') ?>&id=<?=$cmd["id_commande"]?>" class="text-red-600 hover:text-red-900">details</a>
+                            <a href="<?= path('commande', 'voireCommande', ['id' => $cmd['id_commande']]) ?>" class="text-red-600 hover:text-red-900">details</a>
+                        </td>
+                        
                     </tr>
                     <?php endforeach; ?>
                 </tbody>

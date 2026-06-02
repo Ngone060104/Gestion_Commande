@@ -1,5 +1,6 @@
 <?php
 // Configuration de la connexion
+
 function getPDO(){
     // static permet de garder la variable en mémoire entre plusieurs appels
     static $pdo = null; 
@@ -11,10 +12,11 @@ function getPDO(){
                 // "gestionnaire",
                 // "gestionE221",
                   // "mysql:host=127.0.0.1;dbname=estioncommande;charset=utf8;port=3306",
-                "mysql:host=mysql-gestioncommande.alwaysdata.net;dbname=gestioncommande_db;charset=utf8;port=3306",
+                // "mysql:host=mysql-gestioncommande.alwaysdata.net;dbname=gestioncommande_db;charset=utf8;port=3306",
+                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8;port=" . DB_PORT,
                 // // "gestionnaire",
-                "gestioncommande",
-                "gestioncommandeE221@",
+                DB_USER,
+                DB_PASS,
                 [
                     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC

@@ -9,10 +9,10 @@
 
     <!-- Carte du formulaire -->
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        <form action="<?= WEBROOT ?>" method="POST" class="p-8">
+        <form action="<?= path('produit', 'addProduit') ?>" method="POST" enctype="multipart/form-data" class="p-8" novalidate>
 
-            <input type="hidden" name="controller" value="produit">
-            <input type="hidden" name="action" value="addProduit">
+            <!-- <input type="hidden" name="controller" value="produit">
+            <input type="hidden" name="action" value="addProduit"> -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <!-- libelle -->

@@ -9,11 +9,11 @@
 
     <!-- Carte du formulaire -->
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        <form action="<?= WEBROOT ?>" method="POST" class="p-8" enctype="multipart/form-data">
+        <form action="<?= path('client', 'editProfil', ['id' => $client['id_client']]) ?>" method="POST" class="p-8" enctype="multipart/form-data">
             
-            <input type="hidden" name="controller" value="client">
-            <input type="hidden" name="action" value="updateClient">
-            <input type="hidden" name="id" value="<?= $client['id_client'] ?>">
+            <!-- <input type="hidden" name="controller" value="client">
+            <input type="hidden" name="action" value="updateClient"> -->
+           
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <!-- Nom -->

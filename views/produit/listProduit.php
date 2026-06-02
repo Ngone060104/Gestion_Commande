@@ -42,8 +42,8 @@
                             <?= htmlspecialchars($pr['stock']) ?>
                         </td>
                         <td class="px-5 py-4 text-sm text-center">
-                            <a href ="<?= path('produit', 'updateProduit')?>&id=<?=$pr["id_produit"]?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
-                            <a href="<?= path('produit', 'deleteProduit')?>&id=<?=$pr["id_produit"]?>" class="text-red-600 hover:text-red-900" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?');">Supprimer</a>
+                            <a href ="<?= path('produit', 'updateProduit',['id'=>$pr["id_produit"]])?>" class="text-blue-600 hover:text-blue-900 mr-3">Modifier</a>
+                            <a href="<?= path('produit', 'deleteProduit',['id'=>$pr["id_produit"]])?>" class="text-red-600 hover:text-red-900" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?');">Supprimer</a>
                         </td>
                     </tr>
                     <?php endforeach; ?>

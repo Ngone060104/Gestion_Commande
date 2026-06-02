@@ -9,10 +9,10 @@
 
     <!-- Carte du formulaire -->
     <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-        <form action="<?= WEBROOT ?>" method="POST" enctype="multipart/form-data" class="p-8" novalidate>
+        <form action="<?= path('client', 'addClient') ?>" method="POST" enctype="multipart/form-data" class="p-8" novalidate>
 
-            <input type="hidden" name="controller" value="client">
-            <input type="hidden" name="action" value="addClient">
+            <!-- <input type="hidden" name="controller" value="client">
+            <input type="hidden" name="action" value="addClient"> -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <!-- Nom -->
