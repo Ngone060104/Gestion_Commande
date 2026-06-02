@@ -103,3 +103,10 @@ function findCommandesByClientId($idClient) {
     $sql = "SELECT * FROM commande WHERE id_client = ?";
     return executeSelect($sql, [$idClient]);
 }
+function findArticlesByCommandeId($idCommande) {
+    $sql = "SELECT p.libelle AS nom_produit, pc.quantite, pc.prix_vente 
+            FROM produit_commande pc 
+            JOIN produit p ON pc.id_produit = p.id_produit 
+            WHERE pc.id_commande = ?";
+    return executeSelect($sql, [$idCommande]);      
+}

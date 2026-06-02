@@ -16,9 +16,37 @@ function loadView(string $view,array $datas=[],string $layout="side") {
     require_once ROOT."/views/layout/$layout.layout.php";
 }
 
-function path(string $controller, string $action): string{
-    return WEBROOT."?controller=$controller&action=$action";
+// function path(string $controller, string $action): string{
+//     return WEBROOT."?controller=$controller&action=$action";
+// }
+
+// function path(string $controller, string $action): string {
+//     // Si l'action a le même nom que le contrôleur, on peut simplifier l'URL (ex: /dashboard au lieu de /dashboard/dashboard)
+//     if ($controller === $action) {
+//         return WEBROOT . $controller;
+//     }
+    
+//     return WEBROOT . $controller . "/" . $action;
+// }
+
+function path(string $controller, string $action, array $params = []): string {
+    // URL de base épurée
+    $url = WEBROOT . $controller;
+    
+    if ($controller !== $action) {
+        $url .= "/" . $action;
+    }
+    
+    // Si on a des paramètres (comme un id), on les ajoute à la suite sous forme de segments /valeur
+    if (!empty($params)) {
+        foreach ($params as $value) {
+            $url .= "/" . $value;
+        }
+    }
+    
+    return $url;
 }
+
 
 function countTable(string $table){
     $sql="SELECT COUNT(*) as total FROM $table";
